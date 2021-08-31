@@ -12,6 +12,13 @@ public class Main {
 		
 		sc.getCart();
 		
+		
+		Item item=new TShirt(100, "Red", 300);
+		
+		System.out.println(item);
+		
+		
+		
 
 	}
 

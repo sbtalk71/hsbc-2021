@@ -15,4 +15,11 @@ public class Item {
 
 		return itemCode+" "+color+" "+itemPrice;
 	}
+	
+	
+	@Override
+	public String toString() {
+		
+		return "This is a class to represent an Item";
+	}
 }
