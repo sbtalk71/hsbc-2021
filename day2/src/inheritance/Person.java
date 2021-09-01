@@ -2,7 +2,7 @@ package inheritance;
 
 public class Person {
 	private int id;
-	private String name;
+	protected String name;
 
 	public Person(int id,String name) {
 		this.id=id;
