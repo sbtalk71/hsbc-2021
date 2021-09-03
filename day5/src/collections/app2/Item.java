@@ -1,0 +1,25 @@
+package collections.app2;
+
+public class Item {
+	private int itemCode;
+	private String color;
+	private double itemPrice;
+
+	public Item(int itemCode, String color, double itemPrice) {
+		this.itemCode = itemCode;
+		this.color = color;
+		this.itemPrice = itemPrice;
+	}
+
+	public String getDetails() {
+
+		return itemCode+" "+color+" "+itemPrice;
+	}
+	
+	
+	@Override
+	public String toString() {
+		
+		return "This is a class to represent an Item";
+	}
+}

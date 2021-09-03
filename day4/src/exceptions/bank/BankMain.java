@@ -2,7 +2,7 @@ package exceptions.bank;
 
 public class BankMain {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args)  throws LowBalanceException{
 		BankAccount account = new BankAccount(10000);
 
 		account.withdraw(2000);
