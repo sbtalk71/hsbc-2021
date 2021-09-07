@@ -57,6 +57,7 @@ public class BatchWithPst {
 		} catch (SQLException e) {
 			try {
 				conn.rollback();
+				
 			} catch (SQLException e1) {
 
 				e1.printStackTrace();
