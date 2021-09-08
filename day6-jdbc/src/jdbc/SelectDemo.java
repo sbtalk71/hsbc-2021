@@ -17,8 +17,11 @@ public class SelectDemo {
 		//Get the Connection
 		Connection conn=DriverManager.getConnection("jdbc:mariadb://localhost:3306/training", "root", "root");
 		
+		System.out.println(conn.getClass().getName());
+		
 		Statement stmt=conn.createStatement();
 		ResultSet rs= stmt.executeQuery(sql_select);
+		System.out.println(rs.getClass().getName());
 		
 		while(rs.next()) {
 			

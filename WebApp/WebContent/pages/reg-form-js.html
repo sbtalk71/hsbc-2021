@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register Page</title>
+<script type="text/javascript">
+function validateForm(){
+	var uname=document.getElementById("un").value
+	 if(uname==""){
+		//alert("user name cannot be empty")
+		document.getElementById("error_un").innerHTML="user name cannot be empty"
+		return false
+	} 
+	
+	var pwd=document.getElementById("pwd").value
+	alert(pwd)
+	if(pwd==""){
+		//alert("user name cannot be empty")
+		document.getElementById("error_pwd").innerHTML="password cannot be empty"
+		return false
+	}
+}
+</script>
+</head>
+<body>
+	<h1>Register for Code BootCamp</h1>
+	<hr color="red" align="left">
+	<form action="#" onsubmit="return validateForm()" name="reg-form">
+		<table>
+			<tr>
+				<td>Name</td>
+				<td><input type="text" name="userName" id="un" required="required"></td>
+				<td id="error_un"></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input type="text" name="pwd" id="pwd" ></td>
+				<td id="error_pwd"></td>
+			</tr>
+			<tr>
+				<td>Location</td>
+				<td><select name="location">
+						<option value="Hyderabad">Hyderabad</option>
+						<option value="Bangalore">Bangalore</option>
+						<option value="Chennai">Chennai</option>
+						<option value="Pune">Pune</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Gender</td>
+				<td><input type="radio" name="gender" value="male"><label>Male</label>
+					<input type="radio" name="gender" value="female"><label>Female</label>
+				</td>
+			</tr>
+			<tr>
+				<td>Language to select</td>
+				<td><input type="checkbox" name="language" value="python"><label>Python</label>
+					<input type="checkbox" name="language" value="c++"><label>C++</label>
+					<input type="checkbox" name="language" value="java"><label>Java</label>
+					<input type="checkbox" name="language" value="ruby"><label>Ruby</label>
+
+
+				</td>
+			</tr>
+			<tr>
+				<td>Why Do You want to Join this Course</td>
+				<td><textarea name="userName" cols="40" rows="6"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" value="Register"></td>
+			</tr>
+		</table>
+
+	</form>
+	
+	
+</body>
+</html>

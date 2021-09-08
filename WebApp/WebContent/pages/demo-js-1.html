@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="demo.js"></script>
+<script type="text/javascript">
+	function testHead() {
+		alert("I am from html Head part")
+	}
+
+	function printText() {
+		//alert("hi")
+		var inputText = document.getElementById("t1").value
+		document.getElementById("dt").innerHTML = inputText
+		//return false
+	}
+	
+	
+	function printElement(){
+		var text="Hello"
+				
+		for(let i=0;i<10;i++){
+			document.getElementById("displayText").innerHTML=text+document.getElementById("dt").innerHTML
+		}
+		return false
+	}
+</script>
+</head>
+<body>
+	<div>
+		<form action="">
+			<input type="text" id="t1" name='t1'>
+			<button onclick="return printText1()">Print</button><br/>
+			<button onclick="return printElement()">PrintLoop</button>
+		</form>
+	</div>
+	
+	
+	
+	<div id="dt"></div>
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+var a=10
+var b=20
+var y="fun"
+alert(a+b)
+
+alert(a+y)
+
+</script>
+</body>
+</html>
