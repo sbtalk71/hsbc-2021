@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function printText(value) {
+		
+		
+		document.getElementById("dt").innerHTML = value
+		return false
+	}
+</script>
+</head>
+<body>
+	<div>
+		<form action="#">
+			<button onclick="return printText(this.value)" value="red" id="red">RED</button>
+			
+			<button onclick="return printText(this.value)" value="green" id="green">GREEN</button>
+		</form>
+	</div>
+
+<hr color="blue">
+
+	<div id="dt"></div>
+
+
+</body>
+</html>

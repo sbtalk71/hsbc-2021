@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>AJAX Req Page</title>
+<script type="text/javascript">
+	var httpReq
+
+	function getHttpReq() {
+		if (window.ActiveXObject) {
+			httpReq = new ActiveXObject("Microsoft.XMLHTTP")
+		} else {
+			httpReq = new XMLHttpRequest();
+		}
+
+		console.log(httpReq)
+	}
+	
+	function makeRequest(){
+		var input=document.getElementById("req").value
+		var file=input+".json"
+		getHttpReq()
+		httpReq.onreadystatechange=handleResponse
+		httpReq.open("GET",file,true)
+		httpReq.send(null)
+		//alert("request sent..")
+		console.log(httpReq)
+		
+		
+	}
+	
+	function handleResponse(){
+		//alert(httpReq.readyState)
+		if(httpReq.readyState==4){
+			if(httpReq.status==200){
+				var response=httpReq.responseText
+				//alert(httpReq.responseText)
+				var jsonObj=eval('('+response+')')
+				
+				document.getElementById("resp").innerHTML=jsonObj.make+" "+jsonObj.variant+" "+jsonObj.price
+			}
+		}
+	}
+	
+</script>
+</head>
+<body>
+	<input type="text" id="req" name="request">
+	<button onclick="makeRequest()">Make Request</button>
+	<hr>
+	<div id="resp"></div>
+</body>
+</html>
