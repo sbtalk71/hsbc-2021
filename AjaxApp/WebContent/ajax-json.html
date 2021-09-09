@@ -5,7 +5,7 @@
 <title>AJAX Req Page</title>
 <script type="text/javascript">
 	var httpReq
-
+	var input
 	function getHttpReq() {
 		if (window.ActiveXObject) {
 			httpReq = new ActiveXObject("Microsoft.XMLHTTP")
@@ -17,7 +17,7 @@
 	}
 	
 	function makeRequest(){
-		var input=document.getElementById("req").value
+		input=document.getElementById("req").value
 		var file=input+".json"
 		getHttpReq()
 		httpReq.onreadystatechange=handleResponse
@@ -36,8 +36,13 @@
 				var response=httpReq.responseText
 				//alert(httpReq.responseText)
 				var jsonObj=eval('('+response+')')
-				
-				document.getElementById("resp").innerHTML=jsonObj.make+" "+jsonObj.variant+" "+jsonObj.price
+				if(input=="car"){
+					var data=jsonObj.make+" "+jsonObj.variant+" "+jsonObj.price
+				}
+				if(input=="person"){
+					data=jsonObj.name+" "+jsonObj.location+" "+jsonObj.salary
+				}
+				document.getElementById("resp").innerHTML=data
 			}
 		}
 	}

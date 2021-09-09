@@ -19,7 +19,7 @@
 	function makeRequest(){
 		getHttpReq()
 		httpReq.onreadystatechange=handleResponse
-		httpReq.open("GET","response1.txt",true)
+		httpReq.open("GET","http://localhost:8080/ServletApp/test",true)
 		httpReq.send(null)
 		//alert("request sent..")
 		console.log(httpReq)

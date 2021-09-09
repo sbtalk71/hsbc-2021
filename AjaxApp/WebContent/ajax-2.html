@@ -18,8 +18,9 @@
 	
 	function makeRequest(){
 		getHttpReq()
+		var input=document.getElementById("inText").value
 		httpReq.onreadystatechange=handleResponse
-		httpReq.open("GET",document.getElementById("inText").value,true)
+		httpReq.open("GET","http://localhost:8080/ServletApp/test?input="+input,true)
 		httpReq.send(null)
 		//alert("request sent..")
 		console.log(httpReq)
