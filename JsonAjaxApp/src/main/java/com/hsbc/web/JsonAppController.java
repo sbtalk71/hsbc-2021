@@ -17,14 +17,18 @@ public class JsonAppController extends HttpServlet {
 			throws ServletException, IOException {
 		int id = 0;
 		String empId = request.getParameter("id");
-		
+
 		if (!empId.equals("")) {
 			id = Integer.parseInt(empId);
+			if (request.getHeader("Accept").equals("application/json")) {
 
-			EmpJsonService service = new EmpJsonService();
-			String result = service.getJson(id);
+				EmpJsonService service = new EmpJsonService();
+				String result = service.getJson(id);
 
-			response.getWriter().write(result);
+				response.getWriter().write(result);
+			} else {
+				response.sendError(406, "This application supports JSON Only");
+			}
 
 		} else {
 			response.getWriter().write("No Id provided..");
