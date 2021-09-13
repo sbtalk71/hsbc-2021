@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Concat Service</title>
+<script type="text/javascript">
+var xhr
+function makeRequest(){
+	xhr=new XMLHttpRequest();
+	let fname = document.getElementById("fname").value
+	let lname = document.getElementById("lname").value
+	alert(fname+lname)
+	xhr.onreadystatechange=handleResponse
+	xhr.open("POST","http://localhost:8080/ServletApp2/s2",true)
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.send("fname="+fname+"&lname="+lname)
+	
+}
+
+function handleResponse(){
+	if(xhr.readyState==4){
+		if(xhr.status==200){
+			document.getElementById("resp").innerHTML=xhr.responseText
+		}
+	}
+	
+}
+
+</script>
+</head>
+<body>
+	<h1>Enter the details for Concatenation</h1>
+	<hr>
+	
+		<table>
+			<tr>
+				<td>First Name</td>
+				<td><input type="text" name="fname" id="fname"></td>
+			</tr>
+			<tr>
+				<td>Last Name</td>
+				<td><input type="text" name="lname" id="lname"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><button onclick="makeRequest()">Concat</button></td>
+			</tr>
+		</table>
+
+	
+	<div id="resp"></div>
+</body>
+</html>

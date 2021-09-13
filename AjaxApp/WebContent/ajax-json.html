@@ -18,10 +18,10 @@
 	
 	function makeRequest(){
 		input=document.getElementById("req").value
-		var file=input+".json"
+		var url=input+".json"
 		getHttpReq()
 		httpReq.onreadystatechange=handleResponse
-		httpReq.open("GET",file,true)
+		httpReq.open("GET",url,true)
 		httpReq.send(null)
 		//alert("request sent..")
 		console.log(httpReq)
