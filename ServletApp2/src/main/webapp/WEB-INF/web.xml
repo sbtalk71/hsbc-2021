@@ -23,4 +23,13 @@
 		<servlet-name>http-servlet</servlet-name>
 		<url-pattern>/s2</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>http-servlet2</servlet-name>
+		<servlet-class>com.demo.web.DemoHttpServlet2</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>http-servlet2</servlet-name>
+		<url-pattern>/s3</url-pattern>
+	</servlet-mapping>
 </web-app>
