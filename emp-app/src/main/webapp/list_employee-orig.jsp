@@ -1,6 +1,7 @@
+<%@page import="com.hsbc.jdbc.entity.Emp"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,10 @@
 <title>List Employees</title>
 </head>
 <body>
-
+	<%
+	List<Emp> empList = (List<Emp>) session.getAttribute("list");
+	if (empList.size() > 0) {
+	%>
 	<table>
 		<thead>
 			<tr>
@@ -18,18 +22,20 @@
 				<th>DOJ</th>
 				<th>Salary</th>
 			</tr>
-			<c:forEach var="emp" items="${list}">
-				<tr>
-					<td><c:out value="${emp.empId}" /></td>
-					<td><c:out value="${emp.name}" /></td>
-					<td><c:out value="${emp.city}" /></td>
-					<td><c:out value="${emp.doj}" /></td>
-					<td><c:out value="${emp.salary}" /></td>
-				</tr>
-			</c:forEach>
+			<% for(Emp e:empList){%>
+			<tr>
+				<td><%=e.getEmpId() %></td>
+				<td><%=e.getName() %></td>
+				<td><%=e.getCity() %></td>
+				<td><%=e.getDoj() %></td>
+				<td><%=e.getSalary() %></td>
+			</tr>
+			<%} %>
 		</thead>
 	</table>
-
+	<%
+	}
+	%>
 	<a href="index.jsp">Go to Main page</a>
 </body>
 </html>

@@ -15,6 +15,7 @@ import com.hsbc.jdbc.dao.EmpDao;
 import com.hsbc.jdbc.dao.EmployeeDaoImpl;
 import com.hsbc.jdbc.entity.Emp;
 import com.hsbc.jdbc.exceptions.EmpExistsException;
+import com.hsbc.jdbc.exceptions.EmpNotFoundException;
 
 @WebServlet("/")
 public class EmpAppController extends HttpServlet {
@@ -44,7 +45,7 @@ public class EmpAppController extends HttpServlet {
 			req.getRequestDispatcher("/find_employee.jsp").forward(req, resp);
 			break;
 		case "/emp-app/list":
-			List<Emp> empList=dao.listAll();
+			List<Emp> empList = dao.listAll();
 			req.getSession(true).setAttribute("list", empList);
 			req.getRequestDispatcher("/list_employee.jsp").forward(req, resp);
 			break;
@@ -60,7 +61,18 @@ public class EmpAppController extends HttpServlet {
 			}
 
 			break;
-
+		case "/emp-app/findEmp":
+			String empId = req.getParameter("empId");
+			int id=Integer.parseInt(empId);
+			try {
+				Emp emp = dao.findById(id);
+				req.getSession(true).setAttribute("emp", emp);
+				req.getRequestDispatcher("/find_employee.jsp").forward(req, resp);
+			} catch (EmpNotFoundException e) {
+				e.printStackTrace();
+				resp.getWriter().write(e.getMessage());
+			}
+			break;
 		default:
 			resp.sendError(404, requestURI + " Not Found");
 			break;

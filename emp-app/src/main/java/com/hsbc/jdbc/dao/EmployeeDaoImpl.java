@@ -19,7 +19,7 @@ public class EmployeeDaoImpl implements EmpDao {
 		Emp emp = null;
 		try {
 			Connection conn = DBUtil.getConnConnection();
-			PreparedStatement pst = conn.prepareStatement("select * fromm employee where empno=?");
+			PreparedStatement pst = conn.prepareStatement("select * from employee where empno=?");
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
 
