@@ -1,6 +1,7 @@
 package com.hsbc.web;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -43,6 +44,8 @@ public class EmpAppController extends HttpServlet {
 			req.getRequestDispatcher("/find_employee.jsp").forward(req, resp);
 			break;
 		case "/emp-app/list":
+			List<Emp> empList=dao.listAll();
+			req.getSession(true).setAttribute("list", empList);
 			req.getRequestDispatcher("/list_employee.jsp").forward(req, resp);
 			break;
 		case "/emp-app/insertEmp":
