@@ -1,0 +1,12 @@
+
+db.emp.insert({_id:100,"name":"Raju","address":{"door-no":"111","city":"Noida","pin":"100000"},"salary":30000})
+db.emp.insert({_id:101,"name":"Karan","address":{"door-no":"222","city":"Delhi","pin":"100000"},"salary":40000})
+db.emp.insert({_id:102,"name":"Arjun","address":{"door-no":"123","city":"Delhi","pin":"100047"},"salary":60000})
+db.emp.insert({_id:103,"name":"Kejrilal","address":{"door-no":"222","city":"Noida","pin":"100000"},"salary":40000})
+db.emp.insert({_id:104,"name":"Arun","address":{"door-no":"333","city":"Hyderabad","pin":"500058"},"salary":40000})
+db.emp.insert({_id:105,"name":"Pavan","address":{"door-no":"233","city":"Hyderabad","pin":"500059"},"salary":60000})
+db.emp.insert({_id:106,"name":"Preetam","address":{"door-no":"444","city":"Chennai","pin":"400009"},"salary":50000})
+db.emp.insert({_id:107,"name":"Mouli","address":{"door-no":"666","city":"Bangalore","pin":"600009"},"salary":30000})
+db.emp.insert({_id:108,"name":"Gajodhar","address":"{"door-no":"211","city":"Noida","pin":"100000"}","salary":30000})
+db.emp.insert({_id:109,"name":"Panikar","address":{"door-no":"555","city":"Pune","pin":"400011"},"salary":40000})
+
