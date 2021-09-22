@@ -2,6 +2,7 @@ package com.hsbc.lambda;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamsDemo1 {
 
@@ -15,10 +16,22 @@ public class StreamsDemo1 {
 		nums.stream().filter(a->a%2==0).forEach(a->System.out.println(a));
 		
 		//calculate the sum of all even numbers
+		nums.stream().filter(a->a%2==0).mapToInt(n->n.intValue()).sum();
+		
 		//print all odd numbers
+		nums.stream().filter(a->!(a%2==0)).forEach(a->System.out.println(a));
 		//print the max even and max odd
-		//collect all odd numbers in a seperate collection
-
+		System.out.println(nums.stream().filter(a->a%2==0).mapToInt(n->n.intValue()).max().getAsInt());
+		System.out.println(nums.stream().filter(a->!(a%2==0)).mapToInt(n->n.intValue()).max().getAsInt());
+		//collect all odd numbers in a separate collection
+		
+		List<Integer> oddNums=nums.stream().filter(a->!(a%2==0)).collect(Collectors.toList());
+		//Method Reference Class::method if static method else objRef::method
+		oddNums.forEach(System.out::println);
+		
+		
+		
+		
 	}
 
 }
