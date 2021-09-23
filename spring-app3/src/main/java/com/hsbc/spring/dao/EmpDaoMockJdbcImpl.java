@@ -8,7 +8,7 @@ import com.hsbc.spring.entity.Emp;
 public class EmpDaoMockJdbcImpl implements EmpDao {
 
 	public String save(Emp e) {
-		System.out.println("Emp saved with id "+e.getEmpId());
+		System.out.println("JDBC: Emp saved with id "+e.getEmpId());
 		return "saved";
 	}
 
