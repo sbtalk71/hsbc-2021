@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-
 public class GreetLogger {
 	@Pointcut("execution(* com.hsbc.spring.GreetService.showGreeting(..))")
 	private void pcut() {}

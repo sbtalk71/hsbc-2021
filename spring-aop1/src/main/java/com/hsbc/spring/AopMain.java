@@ -12,14 +12,10 @@ public class AopMain {
 		
 		GreetService service= ctx.getBean(GreetService.class);
 		
-		//System.out.println(service.getClass().getName());
 		
 		service.showGreeting();
 		
-		/*
-		 * for(Method m: service.getClass().getMethods()) {
-		 * System.out.println(m.getName()); }
-		 */
+		
 
 	}
 
