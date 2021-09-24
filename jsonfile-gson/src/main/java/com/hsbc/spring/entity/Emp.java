@@ -49,5 +49,10 @@ public class Emp {
 		this.salary = salary;
 	}
 
+	@Override
+	public String toString() {
+		
+		return empId+" "+name+" "+city+" "+salary;
+	}
 	
 }
