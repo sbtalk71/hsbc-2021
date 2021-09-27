@@ -21,7 +21,7 @@ import com.hsbc.spring.entity.Emp;
 
 @Repository
 public class EmpDaoImpl implements EmpDao {
-
+	String INSERT_SQL = "insert into employee(empno,name,location,doj,salary) values(?,?,?,?,?)";
 	@Autowired
 	private JdbcTemplate jt;
 
@@ -40,7 +40,7 @@ public class EmpDaoImpl implements EmpDao {
 
 			});
 		} catch (EmptyResultDataAccessException ex) {
-			//System.out.println("EmpNotFound");
+			// System.out.println("EmpNotFound");
 			throw new EmpNotFoundException();
 
 		}
@@ -49,8 +49,28 @@ public class EmpDaoImpl implements EmpDao {
 
 	@Override
 	public String save(Emp e) throws EmpExistsException {
-		// TODO Auto-generated method stub
-		return null;
+		String message = "";
+		try {
+			Emp emp = this.findById(e.getEmpId());
+			throw new EmpExistsException();
+
+		} catch (EmpNotFoundException ex) {
+			jt.update(new PreparedStatementCreator() {
+
+				@Override
+				public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+					PreparedStatement pst = con.prepareStatement(INSERT_SQL);
+					pst.setInt(1, e.getEmpId());
+					pst.setString(2, e.getName());
+					pst.setString(3, e.getCity());
+					pst.setString(4, e.getDoj().toString());
+					pst.setDouble(5, e.getSalary());
+					return pst;
+				}
+			});
+			message = "Emp Saved";
+		}
+		return message;
 	}
 
 	@Override

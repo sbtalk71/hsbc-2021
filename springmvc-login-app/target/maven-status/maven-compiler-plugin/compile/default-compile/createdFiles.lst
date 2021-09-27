@@ -1,0 +1,3 @@
+com\hsbc\spring\WebAppInitializer.class
+com\hsbc\spring\controllers\MyController.class
+com\hsbc\spring\WebConfig.class
