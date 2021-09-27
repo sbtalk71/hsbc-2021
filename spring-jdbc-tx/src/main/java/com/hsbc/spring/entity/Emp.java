@@ -1,20 +1,32 @@
 package com.hsbc.spring.entity;
 
+import java.time.LocalDate;
+
 public class Emp {
 	private int empId;
 	private String name;
 	private String city;
 	private double salary;
+	private LocalDate doj;
 
 	public Emp() {
 
 	}
 
-	public Emp(int empId, String name, String city, double salary) {
+	public Emp(int empId, String name, String city, double salary, LocalDate doj) {
 		this.empId = empId;
 		this.name = name;
 		this.city = city;
 		this.salary = salary;
+		this.doj = doj;
+	}
+
+	public LocalDate getDoj() {
+		return doj;
+	}
+
+	public void setDoj(LocalDate doj) {
+		this.doj = doj;
 	}
 
 	public int getEmpId() {
@@ -52,7 +64,7 @@ public class Emp {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return empId + " " + name + " " + city + " " + salary;
+		return empId + " " + name + " " + city + " " + salary+" "+doj;
 	}
 
 }

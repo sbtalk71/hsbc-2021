@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -23,7 +24,6 @@ public class RowMapperDemo {
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(JdbcConfig.class);
 
 		JdbcTemplate jt = ctx.getBean(JdbcTemplate.class);
-		
 
 		List<Emp> empList = jt.query(new PreparedStatementCreator() {
 
@@ -39,11 +39,12 @@ public class RowMapperDemo {
 			@Override
 			public Emp mapRow(ResultSet rs, int rowNum) throws SQLException {
 
-				return new Emp(rs.getInt("EMPNO"), rs.getString("NAME"), rs.getString("LOCATION"), rs.getDouble("SALARY"));
+				return new Emp(rs.getInt("EMPNO"), rs.getString("NAME"), rs.getString("LOCATION"),
+						rs.getDouble("SALARY"), LocalDate.parse(rs.getString("doj")));
 			}
 
 		});
-		
+
 		empList.stream().forEach(System.out::println);
 
 	}
