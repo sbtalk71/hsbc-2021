@@ -2,6 +2,8 @@ package com.hsbc.spring.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +25,10 @@ public class EmpDataController {
 	EmpDao dao;
 
 	@GetMapping(path = "/emp/find/{empId}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity findEmp(@PathVariable("empId") int id) {
+	public ResponseEntity findEmp(@PathVariable("empId") int id,HttpServletRequest req) {
 		try {
 			Emp e = dao.findById(id);
+			System.out.println("Request Handled by "+req.getLocalAddr()+":"+req.getLocalPort());
 			return ResponseEntity.ok(e);
 
 		} catch (EmpNotFoundException e) {
